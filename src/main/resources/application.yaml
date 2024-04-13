@@ -1,0 +1,29 @@
+server:
+  port: 8082
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  application:
+    name: GROOMER-MSG
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  datasource:
+    url: jdbc:postgresql://localhost:5434/msg_db
+    username: postgres
+    password: postgres
+  rabbitmq:
+    port: 5672
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: groomer.web.app@gmail.com
+    password: ${EMAIL_APP_PASSWORD}
+    smtp:
+      auth: true
+      starttls:
+        enable: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

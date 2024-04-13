@@ -1,10 +1,7 @@
 package com.wjadczak.groomerMsg.entity;
 
 import com.wjadczak.groomerMsg.enums.MessageStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,10 +21,11 @@ public class MessageEntity {
     private String title;
     private String subject;
     private String body;
-    private String receiverMail;
+    private String receiverEmail;
+    @Enumerated(EnumType.STRING)
     private MessageStatus messageStatus;
     private LocalDateTime sendDate;
     @Lob
-    private byte[] attachement;
+    private byte[] attachment;
 
 }
