@@ -1,5 +1,5 @@
 package com.wjadczak.groomerMsg.service;
 
-public interface MessageService {
+public interface MessageSenderService {
     void sendEmail();
 }

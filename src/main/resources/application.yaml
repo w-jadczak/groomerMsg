@@ -4,6 +4,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   application:
     name: GROOMER-MSG
   liquibase:
@@ -14,6 +17,8 @@ spring:
     password: postgres
   rabbitmq:
     port: 5672
+    username: groomer
+    password: groomer
   mail:
     host: smtp.gmail.com
     port: 587

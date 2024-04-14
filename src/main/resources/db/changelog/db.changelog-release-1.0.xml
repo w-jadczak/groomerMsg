@@ -13,7 +13,7 @@
                         unique="true"
                 />
             </column>
-            <column name="title" type="varchar(100)">
+            <column name="type" type="varchar(100)">
                 <constraints
                         nullable="false"
                 />
@@ -31,6 +31,7 @@
             </column>
             <column name="message_status" type="varchar(100)" />
             <column name="send_date" type="timestamp" />
+            <column name="event_date" type="timestamp" />
             <column name="attachment" type="oid" />
         </createTable>
     </changeSet>

@@ -11,5 +11,4 @@ public class GroomerMsgApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GroomerMsgApplication.class, args);
 	}
-
 }
