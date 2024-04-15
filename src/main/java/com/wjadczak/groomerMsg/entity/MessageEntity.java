@@ -16,11 +16,10 @@ import java.util.UUID;
 @Table(name = "message")
 public class MessageEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
     @Enumerated(EnumType.STRING)
     private MessageType type;
-    private String subject;
-    private String body;
     @Column(name = "receiver_email")
     private String receiverEmail;
     @Enumerated(EnumType.STRING)
@@ -30,6 +29,4 @@ public class MessageEntity {
     private LocalDateTime eventDate;
     @Column(name = "send_date")
     private LocalDateTime sendDate;
-    @Lob
-    private byte[] attachment;
 }

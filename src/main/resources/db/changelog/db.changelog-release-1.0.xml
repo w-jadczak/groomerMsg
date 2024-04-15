@@ -5,8 +5,11 @@
                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
     <changeSet id="release-1.0" author="w-jadczak">
         <comment>"Database initialisation with table message"</comment>
+        <sql>
+            CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+        </sql>
         <createTable tableName="message">
-            <column name="id" type="uuid">
+            <column name="id" type="uuid" defaultValue="uuid_generate_v4()">
                 <constraints
                         primaryKey="true"
                         nullable="false"
@@ -18,12 +21,6 @@
                         nullable="false"
                 />
             </column>
-            <column name="subject" type="varchar(1024)">
-                <constraints
-                        nullable="false"
-                />
-            </column>
-            <column name="body" type="text" />
             <column name="receiver_email" type="varchar(255)">
                 <constraints
                         nullable="false"
@@ -32,7 +29,6 @@
             <column name="message_status" type="varchar(100)" />
             <column name="send_date" type="timestamp" />
             <column name="event_date" type="timestamp" />
-            <column name="attachment" type="oid" />
         </createTable>
     </changeSet>
 </databaseChangeLog>

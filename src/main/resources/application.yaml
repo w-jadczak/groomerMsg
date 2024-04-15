@@ -1,6 +1,9 @@
 server:
   port: 8082
 spring:
+  cloud:
+    discovery:
+      enabled: false
   jpa:
     hibernate:
       ddl-auto: validate
