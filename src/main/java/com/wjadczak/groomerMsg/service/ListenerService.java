@@ -1,5 +1,9 @@
 package com.wjadczak.groomerMsg.service;
 
+import com.wjadczak.groomerMsg.dto.NotificationDto;
+
 public interface ListenerService {
-    public void onUserRegistration(com.wjadczak.groomerMsg.dto.NotificationDto notificationDto);
+    void onUserRegistration(NotificationDto notificationDto);
+    void onAppointmentCancellation(NotificationDto notificationDto);
+    void onAppointmentConfirmation(NotificationDto notificationDto);
 }

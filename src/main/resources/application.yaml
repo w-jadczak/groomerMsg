@@ -1,3 +1,4 @@
+
 server:
   port: 8082
 spring:
@@ -22,6 +23,13 @@ spring:
     port: 5672
     username: groomer
     password: groomer
+    registrationQueue: q.user_registration
+    registrationRoutingKey: k.registration
+    appointmentConfirmationQueue: q.appointment_confirmation
+    confirmationRoutingKey: k.confirmation
+    appointmentCancellationQueue: q.appointment_cancellation
+    cancellationRoutingKey: k.cancellation
+    exchangeName: x.message_exchange
   mail:
     host: smtp.gmail.com
     port: 587
