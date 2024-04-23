@@ -19,8 +19,22 @@
 		<org.springframework.boot.version>3.2.4</org.springframework.boot.version>
 		<org.liquibase.version>4.27.0</org.liquibase.version>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+		<org.junit.jupiter.version>5.9.1</org.junit.jupiter.version>
+
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${org.springframework.boot.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit-jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>

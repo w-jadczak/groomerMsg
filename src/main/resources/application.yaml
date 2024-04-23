@@ -31,10 +31,10 @@ spring:
     cancellationRoutingKey: k.cancellation
     exchangeName: x.message_exchange
   mail:
-    host: smtp.gmail.com
+    host: smtp.poczta.onet.pl
     port: 587
-    username: groomer.web.app@gmail.com
-    password: ${EMAIL_APP_PASSWORD}
+    username: groomer.msg@onet.pl
+    password: 9GFR-5DXD-2QXG-7RGK
     smtp:
       auth: true
       starttls:
