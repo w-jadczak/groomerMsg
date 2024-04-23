@@ -33,8 +33,8 @@ spring:
   mail:
     host: smtp.poczta.onet.pl
     port: 587
-    username: groomer.msg@onet.pl
-    password: 9GFR-5DXD-2QXG-7RGK
+    username: "@{EMAIL}"
+    password: "@{PASS}"
     smtp:
       auth: true
       starttls:
