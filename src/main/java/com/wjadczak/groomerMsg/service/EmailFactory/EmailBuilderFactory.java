@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EmailBuilderFactory {
-    private static final Map<MessageType, EmailBuilder> builderMap = new HashMap<>();
+    private static final Map<MessageType, EmailBuilder> EMAIL_BUILDER_MAP = new HashMap<>();
 
     static {
-        builderMap.put(MessageType.REGISTRATION_CONFIRMATION, new RegistrationConfirmationEmailBuilder());
-        builderMap.put(MessageType.APPOINTMENT_CANCELLATION, new AppointmentCancellationEmailBuilder());
-        builderMap.put(MessageType.APPOINTMENT_CONFIRMATION, new AppointmentConfirmationEmailBuilder());
+        EMAIL_BUILDER_MAP.put(MessageType.REGISTRATION_CONFIRMATION, new RegistrationConfirmationEmailBuilder());
+        EMAIL_BUILDER_MAP.put(MessageType.APPOINTMENT_CANCELLATION, new AppointmentCancellationEmailBuilder());
+        EMAIL_BUILDER_MAP.put(MessageType.APPOINTMENT_CONFIRMATION, new AppointmentConfirmationEmailBuilder());
     }
 
     public static EmailBuilder createBuilder(MessageType messageType){
-        return builderMap.get(messageType);
+        return EMAIL_BUILDER_MAP.get(messageType);
     }
 }
