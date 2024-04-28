@@ -21,8 +21,24 @@
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 		<org.junit.jupiter.version>5.9.1</org.junit.jupiter.version>
 		<org.springframework.security.version>3.2.5</org.springframework.security.version>
+		<io.github.openfeign.version>10.11</io.github.openfeign.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-okhttp</artifactId>
+			<version>${io.github.openfeign.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-gson</artifactId>
+			<version>${io.github.openfeign.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-slf4j</artifactId>
+			<version>${io.github.openfeign.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
