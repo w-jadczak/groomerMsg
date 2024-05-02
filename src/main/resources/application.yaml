@@ -1,3 +1,4 @@
+
 server:
   port: 8082
 spring:
@@ -20,17 +21,27 @@ spring:
     password: postgres
   rabbitmq:
     port: 5672
-    username: groomer
-    password: groomer
+    username: ENC(GKtUVhqiH5zVM/suBe6CuQ==)
+    password: ENC(GKtUVhqiH5zVM/suBe6CuQ==)
+    registrationQueue: q.user_registration
+    registrationRoutingKey: k.registration
+    appointmentConfirmationQueue: q.appointment_confirmation
+    confirmationRoutingKey: k.confirmation
+    appointmentCancellationQueue: q.appointment_cancellation
+    cancellationRoutingKey: k.cancellation
+    exchangeName: x.message_exchange
   mail:
-    host: smtp.gmail.com
+    host: smtp.poczta.onet.pl
     port: 587
-    username: groomer.web.app@gmail.com
-    password: ${EMAIL_APP_PASSWORD}
+    username: ENC(h3tFpUWHffT2vQqVFk94ndnku10ItZoWT3p4baYxxIo=)
+    password: ENC(AsOORStniO5XEDKVo/WKATz7Ed3qPxJB)
     smtp:
       auth: true
       starttls:
         enable: true
+jasypt:
+  encryptor:
+        password: MSN_04_Sazabi
 eureka:
   client:
     serviceUrl:

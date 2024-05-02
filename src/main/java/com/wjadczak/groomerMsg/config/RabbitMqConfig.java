@@ -1,23 +1,34 @@
 package com.wjadczak.groomerMsg.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 
 @Configuration
+@RequiredArgsConstructor
+@PropertySource("classpath:application.yaml")
 public class RabbitMqConfig {
-
-    public static final String REGISTRATION_QUEUE = "q.user_registration";
-    private final String REGISTRATION_ROUTING_KEY = "k.registration";
-    public static final String APPOINTMENT_CONFIRMATION_QUEUE = "q.appointment_confirmation";
-    private final String CONFIRMATION_ROUTING_KEY = "k.confirmation";
-    public static final String APPOINTMENT_CANCELLATION_QUEUE = "q.appointment_cancellation";
-    private final String CANCELLATION_ROUTING_KEY = "k.cancellation";
-    public static final String EXCHANGE_NAME = "x.message_exchange";
+    @Value("${spring.rabbitmq.registrationQueue}")
+    private String REGISTRATION_QUEUE;
+    @Value("${spring.rabbitmq.registrationRoutingKey}")
+    private String REGISTRATION_ROUTING_KEY;
+    @Value("${spring.rabbitmq.appointmentConfirmationQueue}")
+    public String APPOINTMENT_CONFIRMATION_QUEUE;
+    @Value("${spring.rabbitmq.confirmationRoutingKey}")
+    private String CONFIRMATION_ROUTING_KEY;
+    @Value("${spring.rabbitmq.appointmentCancellationQueue}")
+    public String APPOINTMENT_CANCELLATION_QUEUE;
+    @Value("${spring.rabbitmq.cancellationRoutingKey}")
+    private String CANCELLATION_ROUTING_KEY;
+    @Value("${spring.rabbitmq.exchangeName}")
+    private String EXCHANGE_NAME;
 
     @Bean
     public Queue createUserRegistrationQueue() {

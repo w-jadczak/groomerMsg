@@ -1,20 +1,42 @@
 services:
-  db:
+
+  groomer_msg:
+    build:
+      context: /home/wowo/Documents/groomerBookingApp/groomerMsg/
+      dockerfile: /home/wowo/Documents/groomerBookingApp/groomerMsg/Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - msg_db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://msg_db:5434/msg_db
+      SPRING_RABBITMQ_HOST: rabbit_mq  # Use RabbitMQ service name as hostname
+      SPRING_RABBITMQ_PORT: 5672      # Specify RabbitMQ port if different
+      SPRING_RABBITMQ_USERNAME: groomer
+      SPRING_RABBITMQ_PASSWORD: groomer
+    networks:
+        - groomer_network
+
+  msg_db:
     container_name: msg_db
     image: postgres:14
     restart: always
     ports:
-      - "5434:5432"
+      - "5435:5434"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: msg_db
     volumes:
-      - msg_db_data:/var/lib/postgresql/data
+      - msg_db_data:/var/lib/postgresql/msg_db_data
+    command: [ "postgres", "-c", "listen_addresses=*", "-p", "5434" ]
+    networks:
+      - groomer_network
 
-  rabbitmq:
+
+  rabbit_mq:
     image: rabbitmq:3-management
-    container_name: rabbitmq
+    container_name: rabbit_mq
     ports:
       - 5672:5672
       - 15672:15672
@@ -22,11 +44,18 @@ services:
       RABBITMQ_DEFAULT_USER: groomer
       RABBITMQ_DEFAULT_PASS: groomer
     volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbit_mq_data:/var/lib/rabbit_mq
     restart: unless-stopped
+    networks:
+      - groomer_network
 
 volumes:
   msg_db_data:
     driver: local
-  rabbitmq_data:
+  rabbit_mq_data:
     driver: local
+
+networks:
+  groomer_network:
+    driver: bridge
+
