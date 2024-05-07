@@ -19,9 +19,15 @@
 		<org.springframework.boot.version>3.2.4</org.springframework.boot.version>
 		<org.liquibase.version>4.27.0</org.liquibase.version>
 		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+		<org.springdoc.version>2.2.0</org.springdoc.version>
 		<com.github.ulisesbocchio.version>3.0.5</com.github.ulisesbocchio.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${org.springdoc.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
